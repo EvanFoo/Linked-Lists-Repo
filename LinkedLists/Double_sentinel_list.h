@@ -100,53 +100,72 @@ list_head( nullptr ),
 list_tail( nullptr ),
 list_size( 0 ) {
 	// enter your implementation here
+    
+    // The to-be-copied list shall be referred to as source, and the newly created list shall be referred to as copyList
+    // If the list to be copied is empty, nothing is to be done
+    if (list.empty()) return;
+    
+    // Copy the head_sentinel (value -1) of source to copyList
+    push_front( list.front() );
+    
+    // Copy the elements of source, including tail_sentinel (value -1), to copy_list
+    for (Double_node<Type> *source = list.list_head->next(), *copy = list.list_head; (source != nullptr); copy = copy->next(), source = source->next())
+    {
+        copy->next_node = new Double_node<Type>(source->retrieve(), copy, source);
+    }
 }
 
 template <typename Type>
 Double_sentinel_list<Type>::~Double_sentinel_list() {
-	// enter your implementation here
+	while (!empty()) pop_front();
 }
 
 template <typename Type>
 int Double_sentinel_list<Type>::size() const {
 	// enter your implementation here
-	return 0;
+	return list_size;
 }
 
 template <typename Type>
 bool Double_sentinel_list<Type>::empty() const {
-	// enter your implementation here
+	bool return_value;
+
+	if(list_size == 0)
+		return_value = true;
+	else
+		return_value = false;
+
 	return true;
 }
 
 template <typename Type>
 Type Double_sentinel_list<Type>::front() const {
-	// enter your implementation here
-	return Type();
+	Double_node<Type> *tmpPtr = list_head->next();
+    return tmpPtr->retrieve();
 }
 
 template <typename Type>
 Type Double_sentinel_list<Type>::back() const {
-	// enter your implementation here
-	return Type();
+	Double_node<Type> * tmpPtr = list_tail->previous();
+	return tmpPtr->retrieve();
 }
 
 template <typename Type>
 Double_node<Type> *Double_sentinel_list<Type>::head() const {
 	// enter your implementation here
-	return nullptr;
+	return list_head;
 }
 
 template <typename Type>
 Double_node<Type> *Double_sentinel_list<Type>::tail() const {
 	// enter your implementation here
-	return nullptr;
+	return list_tail;
 }
 
 template <typename Type>
 int Double_sentinel_list<Type>::count( Type const &obj ) const {
 	// enter your implementation here
-	return 0;
+	return list_size;
 }
 
 template <typename Type>
@@ -227,8 +246,23 @@ Type Double_sentinel_list<Type>::pop_back() {
 
 template <typename Type>
 int Double_sentinel_list<Type>::erase( Type const &obj ) {
-	// enter your implementation here
-	return 0;
+	if (empty()) return 0;
+    int count = 0;
+    for (Double_node<Type> *stepper = list_head->next(); stepper != nullptr; )
+    {
+        if (stepper->retrieve() == obj)
+        {
+            count++;
+            Double_node<Type> *holder = stepper;
+            Double_node<Type> *tmpPtr = stepper->previous();
+            stepper = stepper->next();
+            delete holder;
+            stepper->previous_node = tmpPtr;
+            tmpPtr->next_node = stepper;
+        }
+        else stepper = stepper->next();
+    }
+	return count;
 }
 
 // You can modify this function however you want:  it will not be tested
