@@ -84,8 +84,8 @@ list_head( nullptr ),
 list_tail( nullptr ),
 list_size( 0 ) {
 	
-		Double_node <Type> * sentinel_1 = new Double_node<Type>(0, nullptr, nullptr);	
-		Double_node <Type> * sentinel_2 = new Double_node<Type>(0, nullptr, nullptr);
+		Double_node <Type> * sentinel_1 = new Double_node<Type>(-1, nullptr, nullptr);	
+		Double_node <Type> * sentinel_2 = new Double_node<Type>(-1, nullptr, nullptr);
 
 		sentinel_1->next_node = sentinel_2;
 		sentinel_2 ->previous_node = sentinel_1;
@@ -99,20 +99,23 @@ Double_sentinel_list<Type>::Double_sentinel_list( Double_sentinel_list<Type> con
 list_head( nullptr ),
 list_tail( nullptr ),
 list_size( 0 ) {
-	// enter your implementation here
-    
-    // The to-be-copied list shall be referred to as source, and the newly created list shall be referred to as copyList
-    // If the list to be copied is empty, nothing is to be done
-    if (list.empty()) return;
-    
-    // Copy the head_sentinel (value -1) of source to copyList
-    push_front( list.front() );
-    
-    // Copy the elements of source, including tail_sentinel (value -1), to copy_list
-    for (Double_node<Type> *source = list.list_head->next(), *copy = list.list_head; (source != nullptr); copy = copy->next(), source = source->next())
-    {
-        copy->next_node = new Double_node<Type>(source->retrieve(), copy, source);
-    }
+	
+	//create an empty list first
+    Double_node <Type> * sentinel_1 = new Double_node<Type>(-1, nullptr, nullptr);	
+	Double_node <Type> * sentinel_2 = new Double_node<Type>(-1, nullptr, nullptr);
+
+	sentinel_1->next_node = sentinel_2;
+	sentinel_2 ->previous_node = sentinel_1;
+
+	list_head = sentinel_1;
+	list_tail = sentinel_2;
+
+	//push everything in the existing list into the new list
+	Double_node <Type> * current = list.list_head;
+	for(int i = 0; i < list.list_size; i++){
+		current = current -> next_node;
+		push_back(current -> element);
+	}
 }
 
 template <typename Type>
@@ -122,7 +125,6 @@ Double_sentinel_list<Type>::~Double_sentinel_list() {
 
 template <typename Type>
 int Double_sentinel_list<Type>::size() const {
-	// enter your implementation here
 	return list_size;
 }
 
@@ -164,8 +166,18 @@ Double_node<Type> *Double_sentinel_list<Type>::tail() const {
 
 template <typename Type>
 int Double_sentinel_list<Type>::count( Type const &obj ) const {
-	// enter your implementation here
-	return list_size;
+	int returnCount = 0;
+
+	//step through each node in the list to find nodes storing the obj value
+	Double_node <Type> * current = list_head;
+	for(int i = 0; i < list_size; i++){
+		current = current -> next_node;
+		if(current->element == obj){
+			returnCount ++;
+		}
+	}
+
+	return returnCount;
 }
 
 template <typename Type>
@@ -188,6 +200,7 @@ template <typename Type>
 void Double_sentinel_list<Type>::push_front( Type const &obj ) {
 
 	Double_node <Type> * temporary = new Double_node<Type>(obj, list_head, list_head->next_node);
+	
 	//make the first sentinel node point to our new node
 	list_head->next_node = temporary;
 	
@@ -202,8 +215,10 @@ template <typename Type>
 void Double_sentinel_list<Type>::push_back( Type const &obj ) {
 
 	Double_node <Type> * temporary = new Double_node<Type>(obj, list_tail -> previous_node, list_tail);
+	
 	//make the last sentinel node point to the new node
 	list_tail -> previous_node = temporary;
+	
 	//make the last node be pointing towards the new node
 	temporary ->previous_node ->next_node = temporary;
 
@@ -221,6 +236,8 @@ Type Double_sentinel_list<Type>::pop_front() {
 
 	list_head->next_node = temporary -> next_node;
 
+	temporary -> next_node -> previous_node = list_head;
+
 	delete temporary;
 
 	list_size --;
@@ -237,7 +254,11 @@ Type Double_sentinel_list<Type>::pop_back() {
 
 	list_tail->previous_node = temporary -> previous_node;
 
+	temporary -> previous_node ->next_node = list_tail;
+
 	delete temporary;
+
+	list_size -- ;
 
 	return to_return;
 
@@ -246,23 +267,22 @@ Type Double_sentinel_list<Type>::pop_back() {
 
 template <typename Type>
 int Double_sentinel_list<Type>::erase( Type const &obj ) {
-	if (empty()) return 0;
-    int count = 0;
-    for (Double_node<Type> *stepper = list_head->next(); stepper != nullptr; )
-    {
-        if (stepper->retrieve() == obj)
-        {
-            count++;
-            Double_node<Type> *holder = stepper;
-            Double_node<Type> *tmpPtr = stepper->previous();
-            stepper = stepper->next();
-            delete holder;
-            stepper->previous_node = tmpPtr;
-            tmpPtr->next_node = stepper;
-        }
-        else stepper = stepper->next();
-    }
-	return count;
+	int deleted = 0;
+	Double_node<Type> * current = list_head;
+	for(int i = 0; i < list_size ; i++){
+		if(current->next_node -> element == obj){
+			std::cout << "deleted" << std::endl;
+			deleted ++;
+			Double_node<Type> * temporary = current->next_node;
+			current ->next_node->next_node->previous_node = current;
+			current ->next_node = current ->next_node ->next_node;
+			delete temporary;
+		}else
+			//std::cout << current->next_node-> element << std::endl;
+
+		current = current->next_node;
+	}
+	return deleted;
 }
 
 // You can modify this function however you want:  it will not be tested

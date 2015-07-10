@@ -84,12 +84,12 @@ Type Double_node<Type>::retrieve() const {
 
 template <typename Type>
 Double_node<Type> *Double_node<Type>::previous() const {
-	return next_node;
+	return previous_node;
 }
 
 template <typename Type>
 Double_node<Type> *Double_node<Type>::next() const {
-	return previous_node;
+	return next_node;
 }
 
 #endif
