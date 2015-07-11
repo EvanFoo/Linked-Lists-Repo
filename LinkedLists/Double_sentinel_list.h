@@ -300,6 +300,7 @@ int Double_sentinel_list<Type>::erase( Type const &obj ) {
 				current ->next_node->next_node->previous_node = current;
 				current ->next_node = current ->next_node ->next_node;
 				delete temporary;
+				list_size--;	// Must decrement list_size to reflect the deletion
 			}else
 
 				current = current->next_node;
