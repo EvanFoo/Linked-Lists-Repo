@@ -14,7 +14,7 @@
  *                    |-- overflow
  *                    |-- division_by_zero
  *                    |-- illegal_argument
- *                     -- out_of_range
+ *                    |-- out_of_range
  */
 
 class exception {

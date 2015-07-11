@@ -1,10 +1,73 @@
-﻿Build started 7/9/2015 11:13:53 AM.
+﻿Build started 7/11/2015 2:54:09 PM.
      1>Project "C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\LinkedLists\LinkedLists.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt LinkedListDriver.cpp
+         LinkedListDriver.cpp
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\ece250.h(507): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\ece250.h(546): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(243): warning C4101: 'e' : unreferenced local variable
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(222) : while compiling class template member function 'int Double_sentinel_list<Type>::pop_front(void)'
+                 with
+                 [
+                     Type=int
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list_tester.h(261) : see reference to function template instantiation 'int Double_sentinel_list<Type>::pop_front(void)' being compiled
+                 with
+                 [
+                     Type=int
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\tester.h(154) : see reference to class template instantiation 'Double_sentinel_list<Type>' being compiled
+                 with
+                 [
+                     Type=int
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\tester.h(78) : while compiling class template member function 'int Tester<Class_name>::run(void)'
+                 with
+                 [
+                     Class_name=Double_sentinel_list<int>
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\linkedlistdriver.cpp(38) : see reference to function template instantiation 'int Tester<Class_name>::run(void)' being compiled
+                 with
+                 [
+                     Class_name=Double_sentinel_list<int>
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list_tester.h(27) : see reference to class template instantiation 'Tester<Class_name>' being compiled
+                 with
+                 [
+                     Class_name=Double_sentinel_list<int>
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\linkedlistdriver.cpp(36) : see reference to class template instantiation 'Double_sentinel_list_tester<Type>' being compiled
+                 with
+                 [
+                     Type=int
+                 ]
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(271): warning C4101: 'e' : unreferenced local variable
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(251) : while compiling class template member function 'int Double_sentinel_list<Type>::pop_back(void)'
+                 with
+                 [
+                     Type=int
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list_tester.h(288) : see reference to function template instantiation 'int Double_sentinel_list<Type>::pop_back(void)' being compiled
+                 with
+                 [
+                     Type=int
+                 ]
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(300): warning C4101: 'e' : unreferenced local variable
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(280) : while compiling class template member function 'int Double_sentinel_list<Type>::erase(const Type &)'
+                 with
+                 [
+                     Type=int
+                 ]
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list_tester.h(315) : see reference to function template instantiation 'int Double_sentinel_list<Type>::erase(const Type &)' being compiled
+                 with
+                 [
+                     Type=int
+                 ]
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\Debug\LinkedLists.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\Debug\LinkedLists.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\Debug\LinkedLists.lib" /MACHINE:X86 Debug\LinkedListDriver.obj
          LinkedLists.vcxproj -> C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\Debug\LinkedLists.exe
      1>Done Building Project "C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\LinkedLists\LinkedLists.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.48
+Time Elapsed 00:00:04.83
