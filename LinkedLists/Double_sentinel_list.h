@@ -125,12 +125,12 @@ template <typename Type>
 bool Double_sentinel_list<Type>::empty() const {
 	
 	//if the list_size is not 0, then then this will not be set to true
-	bool return_value = false;
+	bool return_empty = false;
 
 	if(list_size == 0)
-		return_value = true;
+		return_empty = true;
 
-	return return_value;
+	return return_empty;
 }
 
 template <typename Type>
@@ -299,14 +299,16 @@ int Double_sentinel_list<Type>::erase( Type const &obj ) {
 				Double_node<Type> * temporary = current->next_node;
 				current ->next_node->next_node->previous_node = current;
 				current ->next_node = current ->next_node ->next_node;
+				list_size --;
 				delete temporary;
 				list_size--;	// Must decrement list_size to reflect the deletion
 			}else
-
 				current = current->next_node;
 			}
 	}catch(underflow & e){
 		cout << "Underflow error" << endl;
+	}catch(...){
+		cout << "Unknown error caught" << endl;
 	}
 	return deleted;
 }

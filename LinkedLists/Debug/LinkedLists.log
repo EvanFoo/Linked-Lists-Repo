@@ -1,12 +1,12 @@
-﻿Build started 7/11/2015 2:54:09 PM.
+﻿Build started 7/12/2015 7:51:12 AM.
      1>Project "C:\Users\Dude\Documents\Visual Studio 2012\Projects\LinkedLists\LinkedLists\LinkedLists.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt LinkedListDriver.cpp
          LinkedListDriver.cpp
      1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\ece250.h(507): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
      1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\ece250.h(546): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(243): warning C4101: 'e' : unreferenced local variable
-                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(222) : while compiling class template member function 'int Double_sentinel_list<Type>::pop_front(void)'
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(246): warning C4101: 'e' : unreferenced local variable
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(227) : while compiling class template member function 'int Double_sentinel_list<Type>::pop_front(void)'
                  with
                  [
                      Type=int
@@ -41,8 +41,8 @@
                  [
                      Type=int
                  ]
-     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(271): warning C4101: 'e' : unreferenced local variable
-                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(251) : while compiling class template member function 'int Double_sentinel_list<Type>::pop_back(void)'
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(274): warning C4101: 'e' : unreferenced local variable
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(254) : while compiling class template member function 'int Double_sentinel_list<Type>::pop_back(void)'
                  with
                  [
                      Type=int
@@ -52,8 +52,8 @@
                  [
                      Type=int
                  ]
-     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(300): warning C4101: 'e' : unreferenced local variable
-                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(280) : while compiling class template member function 'int Double_sentinel_list<Type>::erase(const Type &)'
+     1>c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(307): warning C4101: 'e' : unreferenced local variable
+                 c:\users\dude\documents\visual studio 2012\projects\linkedlists\linkedlists\double_sentinel_list.h(283) : while compiling class template member function 'int Double_sentinel_list<Type>::erase(const Type &)'
                  with
                  [
                      Type=int
@@ -70,4 +70,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.83
+Time Elapsed 00:00:03.93
